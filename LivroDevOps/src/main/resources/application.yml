@@ -1,0 +1,36 @@
+spring:
+  profiles:
+     active: prod
+  application:
+    name: LivroDevOps
+  h2:
+    console:
+      enabled: true
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/livrodevops
+    username: sa
+    password: ""
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+server:
+   port: 8080
+management:
+    prometheus:
+       metrics:
+         export:
+           enabled: true
+    endpoints:
+       web:
+         exposure:
+           include: "health, info,metrics,prometheus"
+    health: 
+      redis:
+        enabled: false

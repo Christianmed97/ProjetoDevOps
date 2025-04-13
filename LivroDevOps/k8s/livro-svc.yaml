@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: livrodevops-svc
+  namespace: livro
+spec:
+  selector:
+    app: livrodevops
+  ports:
+    - port: 8080
+      protocol: TCP
+      nodePort: 30010
+  type: NodePort

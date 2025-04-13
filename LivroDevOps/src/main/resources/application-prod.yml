@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: LivroDevOps
+
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://10.99.167.251:5432/livro
+    username: postgres
+    password: 123456
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true 
+    hibernate:
+      ddl-auto: create
+  redis:
+     host: 10.102.188.77
+     port: 6379
+     repositories:
+        enabled: true
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+server:
+  port: 8080

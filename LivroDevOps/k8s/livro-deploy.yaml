@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: livro
+  name: livrodevops
+  labels:
+    app: livrodevops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: livrodevops
+  template:
+    metadata:
+      name: livrodevops
+      labels:
+        app: livrodevops
+    spec:
+      containers:
+        - image: christianm97/livro:latest
+          name: livrodevops
+          imagePullPolicy: Always
+          readinessProbe:
+              initialDelaySeconds: 5
+              successThreshold: 1
+              failureThreshold: 3
+              periodSeconds: 3
+              httpGet:
+                port: 8080
+                path: /actuator/health
+          livenessProbe:
+              initialDelaySeconds: 20
+              failureThreshold: 3
+              periodSeconds: 10
+              successThreshold: 1
+              httpGet:
+                port: 8080
+                path: /actuator/health

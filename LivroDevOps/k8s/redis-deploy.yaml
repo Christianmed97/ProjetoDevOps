@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: livro
+  name: redis-livro
+  labels:
+    app: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      name: redis-livro
+      labels:
+        app: redis
+    spec:
+      containers:
+        - name:  redis-livro
+          image: redis:latest
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
