@@ -4,7 +4,7 @@ spring:
 
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://10.99.167.251:5432/livro
+    url: jdbc:postgresql://10.101.226.215:5432/livro
     username: postgres
     password: 123456
 
@@ -14,7 +14,7 @@ spring:
     hibernate:
       ddl-auto: create
   redis:
-     host: 10.102.188.77
+     host: 10.100.35.230
      port: 6379
      repositories:
         enabled: true

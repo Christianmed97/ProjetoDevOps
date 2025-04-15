@@ -7,12 +7,12 @@ scrape_configs:
       - targets: ["localhost:9090"]
         labels:
           app: "prometheus"
-  - job_name: "app-front"
+  - job_name: "livrodevops"
     metrics_path: "/actuator/prometheus"
     static_configs:
       - targets: ["host.docker.internal:30010"]
         labels:
-          app: "front-end"
+          app: "livrodevops"
   - job_name: "postgres"
     static_configs:
       - targets: ["host.docker.internal:30008"]
